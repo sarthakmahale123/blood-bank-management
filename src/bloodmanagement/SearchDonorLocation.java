@@ -42,6 +42,7 @@ public class SearchDonorLocation extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -93,11 +94,13 @@ public class SearchDonorLocation extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 450, 90, -1));
-
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Sarthak Mahale\\Downloads\\ANUPKUMAR\\2.png")); // NOI18N
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
+        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Sarthak Mahale\\Downloads\\Untitled design\\3.png")); // NOI18N
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -123,7 +126,7 @@ public class SearchDonorLocation extends javax.swing.JFrame {
         try{
              Connection con=ConnectionProvider.getcon();
              Statement st=con.createStatement();
-             ResultSet rs=st.executeQuery("select *from donor city like '%"+location+"%' or address like '%"+location+"%'");
+             ResultSet rs=st.executeQuery("select * from addonor where city like '%"+location+"%' or address like '%"+location+"%'");
              jTable1.setAutoResizeMode(jTable1.AUTO_RESIZE_OFF);
              jTable1.setModel(DbUtils.resultSetToTableModel(rs));
         }
@@ -174,6 +177,7 @@ public class SearchDonorLocation extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;

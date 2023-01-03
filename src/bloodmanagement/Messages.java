@@ -17,12 +17,12 @@ import net.proteanit.sql.DbUtils;
  *
  * @author Sarthak Mahale
  */
-public class Backup extends javax.swing.JFrame {
+public class Messages extends javax.swing.JFrame {
 
     /**
-     * Creates new form Backup
+     * Creates new form Messages
      */
-    public Backup() {
+    public Messages() {
         initComponents();
         display();
     }
@@ -48,8 +48,8 @@ public class Backup extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setText("BACKUP");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(294, 16, -1, -1));
+        jLabel1.setText("MESSAGES");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(282, 16, -1, -1));
         getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 54, 670, 10));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -65,16 +65,16 @@ public class Backup extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 82, 660, 278));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 533, 252));
 
-        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Sarthak Mahale\\Desktop\\icons8-send-to-printer-48 (1).png")); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Sarthak Mahale\\Downloads\\icons8-send-to-printer-48 (1).png")); // NOI18N
         jButton1.setText("Print");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(88, 413, 106, 42));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(133, 393, 104, 40));
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bloodmanagement/images/cross (1).png"))); // NOI18N
         jButton2.setText("Close");
@@ -83,9 +83,9 @@ public class Backup extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(481, 415, 102, 38));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(428, 393, 106, 40));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Sarthak Mahale\\Desktop\\7.png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Sarthak Mahale\\Desktop\\8.png")); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
@@ -95,16 +95,21 @@ public class Backup extends javax.swing.JFrame {
        try{
        Connection con=ConnectionProvider.getcon();
        Statement st=con.createStatement();
-       ResultSet rs=st.executeQuery("select * from backup");
+       ResultSet rs=st.executeQuery("select * from msg");
        jTable1.setModel(DbUtils.resultSetToTableModel(rs));
        }
        catch(Exception e){
        JOptionPane.showMessageDialog(null, e);
        }
     }
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-             try{
+           try{
         jTable1.print(JTable.PrintMode.NORMAL);
         
         }
@@ -112,11 +117,6 @@ public class Backup extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null,e);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        setVisible(false);
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -135,20 +135,20 @@ public class Backup extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Backup.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Messages.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Backup.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Messages.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Backup.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Messages.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Backup.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Messages.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Backup().setVisible(true);
+                new Messages().setVisible(true);
             }
         });
     }

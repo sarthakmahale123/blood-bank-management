@@ -17,12 +17,12 @@ import net.proteanit.sql.DbUtils;
  *
  * @author Sarthak Mahale
  */
-public class Backup extends javax.swing.JFrame {
+public class StockDetails extends javax.swing.JFrame {
 
     /**
-     * Creates new form Backup
+     * Creates new form StockDetails
      */
-    public Backup() {
+    public StockDetails() {
         initComponents();
         display();
     }
@@ -37,9 +37,9 @@ public class Backup extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jSeparator1 = new javax.swing.JSeparator();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -48,9 +48,8 @@ public class Backup extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setText("BACKUP");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(294, 16, -1, -1));
-        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 54, 670, 10));
+        jLabel1.setText("STOCK (DETAILS)");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 16, -1, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -65,7 +64,8 @@ public class Backup extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 82, 660, 278));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, 410, 239));
+        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 54, 670, 13));
 
         jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Sarthak Mahale\\Desktop\\icons8-send-to-printer-48 (1).png")); // NOI18N
         jButton1.setText("Print");
@@ -74,7 +74,7 @@ public class Backup extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(88, 413, 106, 42));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 384, 108, 38));
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bloodmanagement/images/cross (1).png"))); // NOI18N
         jButton2.setText("Close");
@@ -83,9 +83,14 @@ public class Backup extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(481, 415, 102, 38));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 384, 104, 38));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Sarthak Mahale\\Desktop\\7.png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Sarthak Mahale\\Desktop\\6.png")); // NOI18N
+        jLabel2.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                jLabel2ComponentShown(evt);
+            }
+        });
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
@@ -95,7 +100,7 @@ public class Backup extends javax.swing.JFrame {
        try{
        Connection con=ConnectionProvider.getcon();
        Statement st=con.createStatement();
-       ResultSet rs=st.executeQuery("select * from backup");
+       ResultSet rs=st.executeQuery("select * from stock");
        jTable1.setModel(DbUtils.resultSetToTableModel(rs));
        }
        catch(Exception e){
@@ -118,6 +123,10 @@ public class Backup extends javax.swing.JFrame {
         setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jLabel2ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jLabel2ComponentShown
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel2ComponentShown
+
     /**
      * @param args the command line arguments
      */
@@ -135,20 +144,20 @@ public class Backup extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Backup.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StockDetails.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Backup.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StockDetails.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Backup.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StockDetails.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Backup.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StockDetails.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Backup().setVisible(true);
+                new StockDetails().setVisible(true);
             }
         });
     }
